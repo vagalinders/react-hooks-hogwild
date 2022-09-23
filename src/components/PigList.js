@@ -1,30 +1,31 @@
 import React from 'react';
 import hogs from '../porkers_data'
+import PigTile from './PigTile'
 
 
-function renderPigCard() {
-    return(
-        hogs.map(hogs => (
-            <PigTile
-            key={hogs.name}
-            {hogs.name}
-            {hogs.image}
-            />
-        ))
-    )
-}
+
 
 function PigList() {
+    
+    function renderPigTiles(hogs) {
+        console.log(hogs)  
+        return hogs.map(hog => (
+            
+            <PigTile key={hog.name}
+            {...hogs} />
+        ))
+           
+        
+    }
+    
+    
     return (
         <section>
-            <h2>Pigs</h2>
             <ul className="cards">
-                {renderPigCard}
-            </ul>
+                {renderPigTiles(hogs)}
+           </ul>
         </section>
     )
 }
-
-console.log(Hogs)
 
 export default PigList;
